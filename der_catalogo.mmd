@@ -1,0 +1,116 @@
+erDiagram
+    DOMAIN           ||--o{ SUBDOMAIN        : "tiene"
+    SUBDOMAIN        ||--o{ COLLECTION       : "tiene"
+    USAGE_CONTEXT    ||--o{ COLLECTION       : "contexto (coleccion)"
+    USAGE_CONDITION  ||--o{ COLLECTION       : "condicion de uso"
+    USAGE_CONTEXT    ||--o{ ACCESS_REQUEST   : "contexto (solicitud)"
+    COLLECTION       ||--o{ COLLECTION_TABLE : "agrupa"
+    DATA_TABLE       ||--o{ COLLECTION_TABLE : "pertenece a"
+    DATA_TABLE       ||--o{ DATA_FIELD       : "tiene"
+    SOURCE_SYSTEM    ||--o{ DATA_TABLE       : "origen de"
+    COLLECTION       ||--o{ COLLECTION_OWNER : "es poseida por"
+    COLLECTION       ||--o{ ACCESS_REQUEST   : "se solicita"
+
+    DOMAIN {
+        bigint domain_id PK
+        string name UK
+        string status
+        string description
+        string updated_by "email - SCIM"
+    }
+    SUBDOMAIN {
+        bigint subdomain_id PK
+        bigint domain_id FK
+        string name "UK(domain_id,name)"
+        string status
+        string description
+        string updated_by "email - SCIM"
+    }
+    COLLECTION {
+        bigint collection_id PK
+        bigint subdomain_id FK
+        string code "UK global (DCL-33)"
+        string name
+        bigint usage_condition_id FK
+        bigint usage_context_id FK
+        string status "active/inactive"
+        boolean is_published "publicada/no"
+        string description
+        string updated_by "email - SCIM"
+    }
+    USAGE_CONTEXT {
+        bigint usage_context_id PK
+        string name UK
+        string status
+    }
+    USAGE_CONDITION {
+        bigint usage_condition_id PK
+        string type UK
+        string description
+        string status
+    }
+    SOURCE_SYSTEM {
+        bigint source_system_id PK
+        string name UK "SAP/Salesforce/..."
+        string description
+        string status
+    }
+    DATA_TABLE {
+        bigint data_table_id PK
+        string table_name UK "catalog.schema.table"
+        string business_name
+        bigint source_system_id FK
+        string status
+        string description
+        string updated_by "email - SCIM"
+    }
+    DATA_FIELD {
+        bigint data_field_id PK
+        bigint data_table_id FK
+        string column_name "UK(data_table_id,column_name)"
+        string data_type
+        string description
+        int ordinal_position
+        string updated_by "email - SCIM"
+    }
+    COLLECTION_TABLE {
+        bigint collection_id PK_FK
+        bigint data_table_id PK_FK
+        string updated_by "email - SCIM"
+    }
+    COLLECTION_OWNER {
+        bigint collection_id PK_FK
+        string owner_entra_id PK "snapshot"
+        string owner_email "snapshot"
+    }
+    ACCESS_REQUEST {
+        bigint access_request_id PK
+        bigint collection_id FK "solo colecciones"
+        string requester_entra_id "snapshot"
+        string requester_email "snapshot"
+        bigint usage_context_id FK
+        string justification "obligatoria"
+        string comment
+        boolean is_service_account
+        string service_account_name
+        string status "pendiente/aprobado/rechazado/cancelado/cumplimentado"
+        string approver_entra_id "snapshot"
+        string approver_email "snapshot"
+        string approver_comment
+        timestamp decided_at
+        string fulfiller_entra_id "snapshot"
+        string fulfiller_email "snapshot"
+        string fulfiller_comment
+        timestamp fulfilled_at
+    }
+    AUDIT_LOG {
+        bigint audit_log_id PK
+        string table_name
+        string record_id
+        string action "INSERT/UPDATE/DELETE"
+        string changed_by_entra_id "snapshot"
+        string changed_by_email "snapshot"
+        timestamp changed_at
+        json old_values
+        json new_values
+    }

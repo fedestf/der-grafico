@@ -1,0 +1,194 @@
+digraph DER {
+  graph [rankdir=TB, splines=spline, nodesep=0.7, ranksep=1.0, bgcolor="white",
+         fontname="Helvetica",
+         label="DER — Catálogo de datos (tasa_dev_trusted.fedel_sandbox)\n12 tablas · Grupos Databricks en vivo (sin app_user/role/owner_type)\nIdentidad del actor por snapshot (entra_id + email)\ncreated_at/updated_at en todas (audit_log usa changed_at, append-only)",
+         labelloc="t", fontsize=18];
+  node  [shape=plaintext, fontname="Helvetica", fontsize=11];
+  edge  [fontname="Helvetica", fontsize=10, color="#2b5f8a", arrowsize=0.8];
+
+  /* ===== Nota: grupos externos (no son tablas) ===== */
+  grupos [shape=note, fillcolor="#fff8e1", style="filled", fontsize=11, label=
+"Grupos Databricks (EXTERNOS, via SCIM en vivo):\n  admin · user · owner · cumplimentador\nNo son tablas: la app los consulta al ofrecer\ncandidatos y al validar cada accion."];
+
+  /* ===== Jerarquia ===== */
+  domain [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#2e7d32" colspan="2"><font color="white"><b>DOMAIN</b></font></td></tr>
+      <tr><td align="left"><b>domain_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_by</td><td align="left">STRING (email)</td></tr>
+    </table>>];
+
+  subdomain [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#2e7d32" colspan="2"><font color="white"><b>SUBDOMAIN</b></font></td></tr>
+      <tr><td align="left"><b>subdomain_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left"><i>domain_id</i></td><td align="left">BIGINT FK: domain</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING UK(domain_id,name)</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_by</td><td align="left">STRING (email)</td></tr>
+    </table>>];
+
+  collection [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#2e7d32" colspan="2"><font color="white"><b>COLLECTION</b></font></td></tr>
+      <tr><td align="left"><b>collection_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left"><i>subdomain_id</i></td><td align="left">BIGINT FK: subdomain</td></tr>
+      <tr><td align="left">code</td><td align="left">STRING UK (DCL-33)</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING</td></tr>
+      <tr><td align="left"><i>usage_condition_id</i></td><td align="left">BIGINT FK: usage_condition</td></tr>
+      <tr><td align="left"><i>usage_context_id</i></td><td align="left">BIGINT FK: usage_context</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING (active/inactive)</td></tr>
+      <tr><td align="left">is_published</td><td align="left">BOOLEAN (publicada/no)</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_by</td><td align="left">STRING (email)</td></tr>
+    </table>>];
+
+  /* ===== Catalogos ===== */
+  usage_context [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>USAGE_CONTEXT</b></font></td></tr>
+      <tr><td align="left"><b>usage_context_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+    </table>>];
+
+  usage_condition [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>USAGE_CONDITION</b></font></td></tr>
+      <tr><td align="left"><b>usage_condition_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">type</td><td align="left">STRING UK</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+    </table>>];
+
+  source_system [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#8a5a1f" colspan="2"><font color="white"><b>SOURCE_SYSTEM</b></font></td></tr>
+      <tr><td align="left"><b>source_system_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+    </table>>];
+
+  /* ===== Activos ===== */
+  data_table [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#8a5a1f" colspan="2"><font color="white"><b>DATA_TABLE</b></font></td></tr>
+      <tr><td align="left"><b>data_table_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">table_name</td><td align="left">STRING UK (catalog.schema.table)</td></tr>
+      <tr><td align="left">business_name</td><td align="left">STRING</td></tr>
+      <tr><td align="left"><i>source_system_id</i></td><td align="left">BIGINT FK: source_system</td></tr>
+      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_by</td><td align="left">STRING (email)</td></tr>
+    </table>>];
+
+  data_field [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
+      <tr><td bgcolor="#8a5a1f" colspan="2"><font color="white"><b>DATA_FIELD</b></font></td></tr>
+      <tr><td align="left"><b>data_field_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left"><i>data_table_id</i></td><td align="left">BIGINT FK: data_table</td></tr>
+      <tr><td align="left">column_name</td><td align="left">STRING UK(data_table_id,column_name)</td></tr>
+      <tr><td align="left">data_type</td><td align="left">STRING</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">ordinal_position</td><td align="left">INT</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_by</td><td align="left">STRING (email)</td></tr>
+    </table>>];
+
+  collection_table [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="#fff6e6">
+      <tr><td bgcolor="#b26a00" colspan="2"><font color="white"><b>COLLECTION_TABLE</b> (puente N:M)</font></td></tr>
+      <tr><td align="left"><b><i>collection_id</i></b></td><td align="left">BIGINT PK, FK: collection</td></tr>
+      <tr><td align="left"><b><i>data_table_id</i></b></td><td align="left">BIGINT PK, FK: data_table</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_by</td><td align="left">STRING (email)</td></tr>
+    </table>>];
+
+  /* ===== Ownership por SNAPSHOT (sin app_user) ===== */
+  collection_owner [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="#eef4fb">
+      <tr><td bgcolor="#2b5f8a" colspan="2"><font color="white"><b>COLLECTION_OWNER</b> (owners planos)</font></td></tr>
+      <tr><td align="left"><b><i>collection_id</i></b></td><td align="left">BIGINT PK, FK: collection</td></tr>
+      <tr><td align="left"><b>owner_entra_id</b></td><td align="left">STRING PK (identidad snapshot)</td></tr>
+      <tr><td align="left">owner_email</td><td align="left">STRING (snapshot legible)</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+    </table>>];
+
+  access_request [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="#f3eefb">
+      <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>ACCESS_REQUEST</b></font></td></tr>
+      <tr><td align="left"><b>access_request_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left"><i>collection_id</i></td><td align="left">BIGINT FK: collection</td></tr>
+      <tr><td align="left">requester_entra_id</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">requester_email</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left"><i>usage_context_id</i></td><td align="left">BIGINT FK: usage_context</td></tr>
+      <tr><td align="left">justification</td><td align="left">STRING NOT NULL</td></tr>
+      <tr><td align="left">comment</td><td align="left">STRING</td></tr>
+      <tr><td align="left">is_service_account</td><td align="left">BOOLEAN</td></tr>
+      <tr><td align="left">service_account_name</td><td align="left">STRING</td></tr>
+      <tr><td align="left">status</td><td align="left">pendiente/aprobado/rechazado/cancelado/cumplimentado</td></tr>
+      <tr><td align="left">approver_entra_id</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">approver_email</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">approver_comment</td><td align="left">STRING</td></tr>
+      <tr><td align="left">decided_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">fulfiller_entra_id</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">fulfiller_email</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">fulfiller_comment</td><td align="left">STRING</td></tr>
+      <tr><td align="left">fulfilled_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+    </table>>];
+
+  audit_log [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="#eeeeee">
+      <tr><td bgcolor="#555555" colspan="2"><font color="white"><b>AUDIT_LOG</b> (append-only)</font></td></tr>
+      <tr><td align="left"><b>audit_log_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">table_name</td><td align="left">STRING</td></tr>
+      <tr><td align="left">record_id</td><td align="left">STRING</td></tr>
+      <tr><td align="left">action</td><td align="left">INSERT/UPDATE/DELETE</td></tr>
+      <tr><td align="left">changed_by_entra_id</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">changed_by_email</td><td align="left">STRING (snapshot)</td></tr>
+      <tr><td align="left">changed_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">old_values</td><td align="left">JSON</td></tr>
+      <tr><td align="left">new_values</td><td align="left">JSON</td></tr>
+    </table>>];
+
+  /* ===== Relaciones ===== */
+  domain          -> subdomain         [taillabel="1", headlabel="N", label="tiene"];
+  subdomain       -> collection         [taillabel="1", headlabel="N", label="tiene"];
+  usage_context   -> collection         [taillabel="1", headlabel="N", label="contexto (coleccion)"];
+  usage_context   -> access_request     [taillabel="1", headlabel="N", label="contexto (solicitud)"];
+  usage_condition -> collection         [taillabel="1", headlabel="N", label="condicion de uso"];
+  collection      -> collection_table   [taillabel="1", headlabel="N", label="agrupa"];
+  data_table      -> collection_table   [taillabel="1", headlabel="N", label="pertenece a"];
+  data_table      -> data_field         [taillabel="1", headlabel="N", label="tiene"];
+  source_system   -> data_table         [taillabel="1", headlabel="N", label="origen de"];
+  collection      -> collection_owner   [taillabel="1", headlabel="N", label="es poseida por"];
+  collection      -> access_request     [taillabel="1", headlabel="N", label="se solicita"];
+
+  grupos -> collection_owner [style=dashed, color="#b08900", label="elegibilidad\n(validada en app)"];
+  grupos -> access_request   [style=dashed, color="#b08900", label="owner/cumplimentador\n(validado en app)"];
+  grupos -> audit_log        [style=dashed, color="#b08900", label="actor de la accion\n(snapshot desde la app)"];
+}
