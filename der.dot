@@ -152,7 +152,7 @@ digraph DER {
       <tr><td align="left">approver_entra_id</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">approver_email</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">approver_comment</td><td align="left">STRING</td></tr>
-      <tr><td align="left">decided_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">approved_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">fulfiller_entra_id</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">fulfiller_email</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">fulfiller_comment</td><td align="left">STRING</td></tr>
