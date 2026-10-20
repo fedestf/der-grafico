@@ -16,7 +16,7 @@ digraph DER {
       <tr><td bgcolor="#2e7d32" colspan="2"><font color="white"><b>DOMAIN</b></font></td></tr>
       <tr><td align="left"><b>domain_id</b></td><td align="left">BIGINT PK</td></tr>
       <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">description</td><td align="left">STRING</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
@@ -29,7 +29,7 @@ digraph DER {
       <tr><td align="left"><b>subdomain_id</b></td><td align="left">BIGINT PK</td></tr>
       <tr><td align="left"><i>domain_id</i></td><td align="left">BIGINT FK: domain</td></tr>
       <tr><td align="left">name</td><td align="left">STRING UK(domain_id,name)</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">description</td><td align="left">STRING</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
@@ -45,7 +45,7 @@ digraph DER {
       <tr><td align="left">name</td><td align="left">STRING</td></tr>
       <tr><td align="left"><i>usage_condition_id</i></td><td align="left">BIGINT FK: usage_condition</td></tr>
       <tr><td align="left"><i>usage_context_id</i></td><td align="left">BIGINT FK: usage_context</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING (active/inactive)</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">is_published</td><td align="left">BOOLEAN (publicada/no)</td></tr>
       <tr><td align="left">description</td><td align="left">STRING</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
@@ -59,7 +59,8 @@ digraph DER {
       <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>USAGE_CONTEXT</b></font></td></tr>
       <tr><td align="left"><b>usage_context_id</b></td><td align="left">BIGINT PK</td></tr>
       <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">description</td><td align="left">STRING</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
     </table>>];
@@ -68,9 +69,9 @@ digraph DER {
     <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="white">
       <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>USAGE_CONDITION</b></font></td></tr>
       <tr><td align="left"><b>usage_condition_id</b></td><td align="left">BIGINT PK</td></tr>
-      <tr><td align="left">type</td><td align="left">STRING UK</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
       <tr><td align="left">description</td><td align="left">STRING</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
     </table>>];
@@ -81,7 +82,7 @@ digraph DER {
       <tr><td align="left"><b>source_system_id</b></td><td align="left">BIGINT PK</td></tr>
       <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
       <tr><td align="left">description</td><td align="left">STRING</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
     </table>>];
@@ -94,7 +95,6 @@ digraph DER {
       <tr><td align="left">table_name</td><td align="left">STRING UK (catalog.schema.table)</td></tr>
       <tr><td align="left">business_name</td><td align="left">STRING</td></tr>
       <tr><td align="left"><i>source_system_id</i></td><td align="left">BIGINT FK: source_system</td></tr>
-      <tr><td align="left">status</td><td align="left">STRING</td></tr>
       <tr><td align="left">description</td><td align="left">STRING</td></tr>
       <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>

@@ -40,9 +40,9 @@
 <polygon fill="none" stroke="black" points="885.88,-1405.6 885.88,-1428.8 974.1,-1428.8 974.1,-1405.6 885.88,-1405.6"/>
 <text xml:space="preserve" text-anchor="start" x="890.88" y="-1412.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK</text>
 <polygon fill="none" stroke="black" points="818.38,-1382.4 818.38,-1405.6 885.88,-1405.6 885.88,-1382.4 818.38,-1382.4"/>
-<text xml:space="preserve" text-anchor="start" x="823.38" y="-1389.6" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="823.38" y="-1389.6" font-family="Helvetica,sans-Serif" font-size="11.00">is_active</text>
 <polygon fill="none" stroke="black" points="885.88,-1382.4 885.88,-1405.6 974.1,-1405.6 974.1,-1382.4 885.88,-1382.4"/>
-<text xml:space="preserve" text-anchor="start" x="890.88" y="-1389.6" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<text xml:space="preserve" text-anchor="start" x="890.88" y="-1389.6" font-family="Helvetica,sans-Serif" font-size="11.00">BOOLEAN</text>
 <polygon fill="none" stroke="black" points="818.38,-1359.2 818.38,-1382.4 885.88,-1382.4 885.88,-1359.2 818.38,-1359.2"/>
 <text xml:space="preserve" text-anchor="start" x="823.38" y="-1366.4" font-family="Helvetica,sans-Serif" font-size="11.00">description</text>
 <polygon fill="none" stroke="black" points="885.88,-1359.2 885.88,-1382.4 974.1,-1382.4 974.1,-1359.2 885.88,-1359.2"/>
@@ -87,9 +87,9 @@
 <polygon fill="none" stroke="black" points="859.25,-1104.8 859.25,-1128 1017.8,-1128 1017.8,-1104.8 859.25,-1104.8"/>
 <text xml:space="preserve" text-anchor="start" x="864.25" y="-1112" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK(domain_id,name)</text>
 <polygon fill="none" stroke="black" points="774.69,-1081.6 774.69,-1104.8 859.25,-1104.8 859.25,-1081.6 774.69,-1081.6"/>
-<text xml:space="preserve" text-anchor="start" x="779.69" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="779.69" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">is_active</text>
 <polygon fill="none" stroke="black" points="859.25,-1081.6 859.25,-1104.8 1017.8,-1104.8 1017.8,-1081.6 859.25,-1081.6"/>
-<text xml:space="preserve" text-anchor="start" x="864.25" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<text xml:space="preserve" text-anchor="start" x="864.25" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">BOOLEAN</text>
 <polygon fill="none" stroke="black" points="774.69,-1058.4 774.69,-1081.6 859.25,-1081.6 859.25,-1058.4 774.69,-1058.4"/>
 <text xml:space="preserve" text-anchor="start" x="779.69" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">description</text>
 <polygon fill="none" stroke="black" points="859.25,-1058.4 859.25,-1081.6 1017.8,-1081.6 1017.8,-1058.4 859.25,-1058.4"/>
@@ -144,9 +144,9 @@
 <polygon fill="none" stroke="black" points="869.63,-734.4 869.63,-757.6 1019.65,-757.6 1019.65,-734.4 869.63,-734.4"/>
 <text xml:space="preserve" text-anchor="start" x="874.63" y="-741.6" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT FK: usage_context</text>
 <polygon fill="none" stroke="black" points="764.83,-711.2 764.83,-734.4 869.63,-734.4 869.63,-711.2 764.83,-711.2"/>
-<text xml:space="preserve" text-anchor="start" x="769.83" y="-718.4" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="769.83" y="-718.4" font-family="Helvetica,sans-Serif" font-size="11.00">is_active</text>
 <polygon fill="none" stroke="black" points="869.63,-711.2 869.63,-734.4 1019.65,-734.4 1019.65,-711.2 869.63,-711.2"/>
-<text xml:space="preserve" text-anchor="start" x="874.63" y="-718.4" font-family="Helvetica,sans-Serif" font-size="11.00">STRING (active/inactive)</text>
+<text xml:space="preserve" text-anchor="start" x="874.63" y="-718.4" font-family="Helvetica,sans-Serif" font-size="11.00">BOOLEAN</text>
 <polygon fill="none" stroke="black" points="764.83,-688 764.83,-711.2 869.63,-711.2 869.63,-688 764.83,-688"/>
 <text xml:space="preserve" text-anchor="start" x="769.83" y="-695.2" font-family="Helvetica,sans-Serif" font-size="11.00">is_published</text>
 <polygon fill="none" stroke="black" points="869.63,-688 869.63,-711.2 1019.65,-711.2 1019.65,-688 869.63,-688"/>
@@ -176,51 +176,47 @@
 <!-- data_table -->
 <g id="node8" class="node">
 <title>data_table</title>
-<polygon fill="white" stroke="none" points="180.8,-630 180.8,-862 463.68,-862 463.68,-630 180.8,-630"/>
-<polygon fill="#8a5a1f" stroke="none" points="180.8,-838.8 180.8,-862 463.68,-862 463.68,-838.8 180.8,-838.8"/>
-<polygon fill="none" stroke="black" points="180.8,-838.8 180.8,-862 463.68,-862 463.68,-838.8 180.8,-838.8"/>
-<text xml:space="preserve" text-anchor="start" x="285.58" y="-848.1" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white">DATA_TABLE</text>
-<polygon fill="none" stroke="black" points="180.8,-815.6 180.8,-838.8 279.45,-838.8 279.45,-815.6 180.8,-815.6"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-824.9" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">data_table_id</text>
-<polygon fill="none" stroke="black" points="279.45,-815.6 279.45,-838.8 463.68,-838.8 463.68,-815.6 279.45,-815.6"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-822.8" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT PK</text>
-<polygon fill="none" stroke="black" points="180.8,-792.4 180.8,-815.6 279.45,-815.6 279.45,-792.4 180.8,-792.4"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-799.6" font-family="Helvetica,sans-Serif" font-size="11.00">table_name</text>
-<polygon fill="none" stroke="black" points="279.45,-792.4 279.45,-815.6 463.68,-815.6 463.68,-792.4 279.45,-792.4"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-799.6" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK (catalog.schema.table)</text>
-<polygon fill="none" stroke="black" points="180.8,-769.2 180.8,-792.4 279.45,-792.4 279.45,-769.2 180.8,-769.2"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-776.4" font-family="Helvetica,sans-Serif" font-size="11.00">business_name</text>
-<polygon fill="none" stroke="black" points="279.45,-769.2 279.45,-792.4 463.68,-792.4 463.68,-769.2 279.45,-769.2"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-776.4" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
-<polygon fill="none" stroke="black" points="180.8,-746 180.8,-769.2 279.45,-769.2 279.45,-746 180.8,-746"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-755.3" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">source_system_id</text>
-<polygon fill="none" stroke="black" points="279.45,-746 279.45,-769.2 463.68,-769.2 463.68,-746 279.45,-746"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-753.2" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT FK: source_system</text>
-<polygon fill="none" stroke="black" points="180.8,-722.8 180.8,-746 279.45,-746 279.45,-722.8 180.8,-722.8"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-730" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
-<polygon fill="none" stroke="black" points="279.45,-722.8 279.45,-746 463.68,-746 463.68,-722.8 279.45,-722.8"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-730" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
-<polygon fill="none" stroke="black" points="180.8,-699.6 180.8,-722.8 279.45,-722.8 279.45,-699.6 180.8,-699.6"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-706.8" font-family="Helvetica,sans-Serif" font-size="11.00">description</text>
-<polygon fill="none" stroke="black" points="279.45,-699.6 279.45,-722.8 463.68,-722.8 463.68,-699.6 279.45,-699.6"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-706.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
-<polygon fill="none" stroke="black" points="180.8,-676.4 180.8,-699.6 279.45,-699.6 279.45,-676.4 180.8,-676.4"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-683.6" font-family="Helvetica,sans-Serif" font-size="11.00">created_at</text>
-<polygon fill="none" stroke="black" points="279.45,-676.4 279.45,-699.6 463.68,-699.6 463.68,-676.4 279.45,-676.4"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-683.6" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
-<polygon fill="none" stroke="black" points="180.8,-653.2 180.8,-676.4 279.45,-676.4 279.45,-653.2 180.8,-653.2"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-660.4" font-family="Helvetica,sans-Serif" font-size="11.00">updated_at</text>
-<polygon fill="none" stroke="black" points="279.45,-653.2 279.45,-676.4 463.68,-676.4 463.68,-653.2 279.45,-653.2"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-660.4" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
-<polygon fill="none" stroke="black" points="180.8,-630 180.8,-653.2 279.45,-653.2 279.45,-630 180.8,-630"/>
-<text xml:space="preserve" text-anchor="start" x="185.8" y="-637.2" font-family="Helvetica,sans-Serif" font-size="11.00">updated_by</text>
-<polygon fill="none" stroke="black" points="279.45,-630 279.45,-653.2 463.68,-653.2 463.68,-630 279.45,-630"/>
-<text xml:space="preserve" text-anchor="start" x="284.45" y="-637.2" font-family="Helvetica,sans-Serif" font-size="11.00">STRING (email)</text>
+<polygon fill="white" stroke="none" points="180.8,-641.6 180.8,-850.4 463.68,-850.4 463.68,-641.6 180.8,-641.6"/>
+<polygon fill="#8a5a1f" stroke="none" points="180.8,-827.2 180.8,-850.4 463.68,-850.4 463.68,-827.2 180.8,-827.2"/>
+<polygon fill="none" stroke="black" points="180.8,-827.2 180.8,-850.4 463.68,-850.4 463.68,-827.2 180.8,-827.2"/>
+<text xml:space="preserve" text-anchor="start" x="285.58" y="-836.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white">DATA_TABLE</text>
+<polygon fill="none" stroke="black" points="180.8,-804 180.8,-827.2 279.45,-827.2 279.45,-804 180.8,-804"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-813.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">data_table_id</text>
+<polygon fill="none" stroke="black" points="279.45,-804 279.45,-827.2 463.68,-827.2 463.68,-804 279.45,-804"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-811.2" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT PK</text>
+<polygon fill="none" stroke="black" points="180.8,-780.8 180.8,-804 279.45,-804 279.45,-780.8 180.8,-780.8"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-788" font-family="Helvetica,sans-Serif" font-size="11.00">table_name</text>
+<polygon fill="none" stroke="black" points="279.45,-780.8 279.45,-804 463.68,-804 463.68,-780.8 279.45,-780.8"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-788" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK (catalog.schema.table)</text>
+<polygon fill="none" stroke="black" points="180.8,-757.6 180.8,-780.8 279.45,-780.8 279.45,-757.6 180.8,-757.6"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-764.8" font-family="Helvetica,sans-Serif" font-size="11.00">business_name</text>
+<polygon fill="none" stroke="black" points="279.45,-757.6 279.45,-780.8 463.68,-780.8 463.68,-757.6 279.45,-757.6"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-764.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<polygon fill="none" stroke="black" points="180.8,-734.4 180.8,-757.6 279.45,-757.6 279.45,-734.4 180.8,-734.4"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-743.7" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">source_system_id</text>
+<polygon fill="none" stroke="black" points="279.45,-734.4 279.45,-757.6 463.68,-757.6 463.68,-734.4 279.45,-734.4"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-741.6" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT FK: source_system</text>
+<polygon fill="none" stroke="black" points="180.8,-711.2 180.8,-734.4 279.45,-734.4 279.45,-711.2 180.8,-711.2"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-718.4" font-family="Helvetica,sans-Serif" font-size="11.00">description</text>
+<polygon fill="none" stroke="black" points="279.45,-711.2 279.45,-734.4 463.68,-734.4 463.68,-711.2 279.45,-711.2"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-718.4" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<polygon fill="none" stroke="black" points="180.8,-688 180.8,-711.2 279.45,-711.2 279.45,-688 180.8,-688"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-695.2" font-family="Helvetica,sans-Serif" font-size="11.00">created_at</text>
+<polygon fill="none" stroke="black" points="279.45,-688 279.45,-711.2 463.68,-711.2 463.68,-688 279.45,-688"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-695.2" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
+<polygon fill="none" stroke="black" points="180.8,-664.8 180.8,-688 279.45,-688 279.45,-664.8 180.8,-664.8"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-672" font-family="Helvetica,sans-Serif" font-size="11.00">updated_at</text>
+<polygon fill="none" stroke="black" points="279.45,-664.8 279.45,-688 463.68,-688 463.68,-664.8 279.45,-664.8"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-672" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
+<polygon fill="none" stroke="black" points="180.8,-641.6 180.8,-664.8 279.45,-664.8 279.45,-641.6 180.8,-641.6"/>
+<text xml:space="preserve" text-anchor="start" x="185.8" y="-648.8" font-family="Helvetica,sans-Serif" font-size="11.00">updated_by</text>
+<polygon fill="none" stroke="black" points="279.45,-641.6 279.45,-664.8 463.68,-664.8 463.68,-641.6 279.45,-641.6"/>
+<text xml:space="preserve" text-anchor="start" x="284.45" y="-648.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING (email)</text>
 </g>
 <!-- grupos&#45;&gt;data_table -->
 <g id="edge18" class="edge">
 <title>grupos&#45;&gt;data_table</title>
-<path fill="none" stroke="#9aa0a6" stroke-dasharray="1,5" d="M1252.02,-776.81C1210.13,-823.37 1123.03,-909.73 1027.24,-942.8 934.4,-974.86 678.44,-973.81 585.24,-942.8 536.27,-926.51 489.06,-897.14 448.48,-865.98"/>
+<path fill="none" stroke="#9aa0a6" stroke-dasharray="1,5" d="M1252.02,-776.81C1210.13,-823.37 1123.03,-909.73 1027.24,-942.8 934.4,-974.86 678.44,-973.81 585.24,-942.8 530.18,-924.48 477.34,-889.63 433.66,-854.29"/>
 </g>
 <!-- data_field -->
 <g id="node9" class="node">
@@ -539,48 +535,52 @@
 <!-- usage_context -->
 <g id="node5" class="node">
 <title>usage_context</title>
-<polygon fill="white" stroke="none" points="531.7,-1023.6 531.7,-1162.8 708.79,-1162.8 708.79,-1023.6 531.7,-1023.6"/>
-<polygon fill="#5a3a8a" stroke="none" points="531.7,-1139.6 531.7,-1162.8 708.79,-1162.8 708.79,-1139.6 531.7,-1139.6"/>
-<polygon fill="none" stroke="black" points="531.7,-1139.6 531.7,-1162.8 708.79,-1162.8 708.79,-1139.6 531.7,-1139.6"/>
-<text xml:space="preserve" text-anchor="start" x="571.35" y="-1148.9" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white">USAGE_CONTEXT</text>
-<polygon fill="none" stroke="black" points="531.7,-1116.4 531.7,-1139.6 634.62,-1139.6 634.62,-1116.4 531.7,-1116.4"/>
-<text xml:space="preserve" text-anchor="start" x="536.7" y="-1125.7" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">usage_context_id</text>
-<polygon fill="none" stroke="black" points="634.62,-1116.4 634.62,-1139.6 708.79,-1139.6 708.79,-1116.4 634.62,-1116.4"/>
-<text xml:space="preserve" text-anchor="start" x="639.62" y="-1123.6" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT PK</text>
-<polygon fill="none" stroke="black" points="531.7,-1093.2 531.7,-1116.4 634.62,-1116.4 634.62,-1093.2 531.7,-1093.2"/>
-<text xml:space="preserve" text-anchor="start" x="536.7" y="-1100.4" font-family="Helvetica,sans-Serif" font-size="11.00">name</text>
-<polygon fill="none" stroke="black" points="634.62,-1093.2 634.62,-1116.4 708.79,-1116.4 708.79,-1093.2 634.62,-1093.2"/>
-<text xml:space="preserve" text-anchor="start" x="639.62" y="-1100.4" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK</text>
-<polygon fill="none" stroke="black" points="531.7,-1070 531.7,-1093.2 634.62,-1093.2 634.62,-1070 531.7,-1070"/>
-<text xml:space="preserve" text-anchor="start" x="536.7" y="-1077.2" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
-<polygon fill="none" stroke="black" points="634.62,-1070 634.62,-1093.2 708.79,-1093.2 708.79,-1070 634.62,-1070"/>
-<text xml:space="preserve" text-anchor="start" x="639.62" y="-1077.2" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
-<polygon fill="none" stroke="black" points="531.7,-1046.8 531.7,-1070 634.62,-1070 634.62,-1046.8 531.7,-1046.8"/>
-<text xml:space="preserve" text-anchor="start" x="536.7" y="-1054" font-family="Helvetica,sans-Serif" font-size="11.00">created_at</text>
-<polygon fill="none" stroke="black" points="634.62,-1046.8 634.62,-1070 708.79,-1070 708.79,-1046.8 634.62,-1046.8"/>
-<text xml:space="preserve" text-anchor="start" x="639.62" y="-1054" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
-<polygon fill="none" stroke="black" points="531.7,-1023.6 531.7,-1046.8 634.62,-1046.8 634.62,-1023.6 531.7,-1023.6"/>
-<text xml:space="preserve" text-anchor="start" x="536.7" y="-1030.8" font-family="Helvetica,sans-Serif" font-size="11.00">updated_at</text>
-<polygon fill="none" stroke="black" points="634.62,-1023.6 634.62,-1046.8 708.79,-1046.8 708.79,-1023.6 634.62,-1023.6"/>
-<text xml:space="preserve" text-anchor="start" x="639.62" y="-1030.8" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
+<polygon fill="white" stroke="none" points="531.7,-1012 531.7,-1174.4 708.79,-1174.4 708.79,-1012 531.7,-1012"/>
+<polygon fill="#5a3a8a" stroke="none" points="531.7,-1151.2 531.7,-1174.4 708.79,-1174.4 708.79,-1151.2 531.7,-1151.2"/>
+<polygon fill="none" stroke="black" points="531.7,-1151.2 531.7,-1174.4 708.79,-1174.4 708.79,-1151.2 531.7,-1151.2"/>
+<text xml:space="preserve" text-anchor="start" x="571.35" y="-1160.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white">USAGE_CONTEXT</text>
+<polygon fill="none" stroke="black" points="531.7,-1128 531.7,-1151.2 634.62,-1151.2 634.62,-1128 531.7,-1128"/>
+<text xml:space="preserve" text-anchor="start" x="536.7" y="-1137.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">usage_context_id</text>
+<polygon fill="none" stroke="black" points="634.62,-1128 634.62,-1151.2 708.79,-1151.2 708.79,-1128 634.62,-1128"/>
+<text xml:space="preserve" text-anchor="start" x="639.62" y="-1135.2" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT PK</text>
+<polygon fill="none" stroke="black" points="531.7,-1104.8 531.7,-1128 634.62,-1128 634.62,-1104.8 531.7,-1104.8"/>
+<text xml:space="preserve" text-anchor="start" x="536.7" y="-1112" font-family="Helvetica,sans-Serif" font-size="11.00">name</text>
+<polygon fill="none" stroke="black" points="634.62,-1104.8 634.62,-1128 708.79,-1128 708.79,-1104.8 634.62,-1104.8"/>
+<text xml:space="preserve" text-anchor="start" x="639.62" y="-1112" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK</text>
+<polygon fill="none" stroke="black" points="531.7,-1081.6 531.7,-1104.8 634.62,-1104.8 634.62,-1081.6 531.7,-1081.6"/>
+<text xml:space="preserve" text-anchor="start" x="536.7" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">description</text>
+<polygon fill="none" stroke="black" points="634.62,-1081.6 634.62,-1104.8 708.79,-1104.8 708.79,-1081.6 634.62,-1081.6"/>
+<text xml:space="preserve" text-anchor="start" x="639.62" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<polygon fill="none" stroke="black" points="531.7,-1058.4 531.7,-1081.6 634.62,-1081.6 634.62,-1058.4 531.7,-1058.4"/>
+<text xml:space="preserve" text-anchor="start" x="536.7" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">is_active</text>
+<polygon fill="none" stroke="black" points="634.62,-1058.4 634.62,-1081.6 708.79,-1081.6 708.79,-1058.4 634.62,-1058.4"/>
+<text xml:space="preserve" text-anchor="start" x="639.62" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">BOOLEAN</text>
+<polygon fill="none" stroke="black" points="531.7,-1035.2 531.7,-1058.4 634.62,-1058.4 634.62,-1035.2 531.7,-1035.2"/>
+<text xml:space="preserve" text-anchor="start" x="536.7" y="-1042.4" font-family="Helvetica,sans-Serif" font-size="11.00">created_at</text>
+<polygon fill="none" stroke="black" points="634.62,-1035.2 634.62,-1058.4 708.79,-1058.4 708.79,-1035.2 634.62,-1035.2"/>
+<text xml:space="preserve" text-anchor="start" x="639.62" y="-1042.4" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
+<polygon fill="none" stroke="black" points="531.7,-1012 531.7,-1035.2 634.62,-1035.2 634.62,-1012 531.7,-1012"/>
+<text xml:space="preserve" text-anchor="start" x="536.7" y="-1019.2" font-family="Helvetica,sans-Serif" font-size="11.00">updated_at</text>
+<polygon fill="none" stroke="black" points="634.62,-1012 634.62,-1035.2 708.79,-1035.2 708.79,-1012 634.62,-1012"/>
+<text xml:space="preserve" text-anchor="start" x="639.62" y="-1019.2" font-family="Helvetica,sans-Serif" font-size="11.00">TIMESTAMP</text>
 </g>
 <!-- usage_context&#45;&gt;collection -->
 <g id="edge3" class="edge">
 <title>usage_context&#45;&gt;collection</title>
-<path fill="none" stroke="#2b5f8a" d="M677.26,-1019.83C703,-987.17 734.51,-947.18 765.39,-907.99"/>
-<polygon fill="#2b5f8a" stroke="#2b5f8a" points="767.46,-909.89 770.21,-901.87 763.06,-906.42 767.46,-909.89"/>
+<path fill="none" stroke="#2b5f8a" d="M686.43,-1008.2C710.29,-977.92 738.08,-942.65 765.37,-908.01"/>
+<polygon fill="#2b5f8a" stroke="#2b5f8a" points="767.5,-909.84 770.25,-901.82 763.1,-906.37 767.5,-909.84"/>
 <text xml:space="preserve" text-anchor="middle" x="784.42" y="-939.8" font-family="Helvetica,sans-Serif" font-size="10.00">contexto (coleccion)</text>
-<text xml:space="preserve" text-anchor="middle" x="767.54" y="-903.68" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
-<text xml:space="preserve" text-anchor="middle" x="674.48" y="-1010.83" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text xml:space="preserve" text-anchor="middle" x="767.58" y="-903.63" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
+<text xml:space="preserve" text-anchor="middle" x="683.65" y="-999.2" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <!-- usage_context&#45;&gt;access_request -->
 <g id="edge4" class="edge">
 <title>usage_context&#45;&gt;access_request</title>
-<path fill="none" stroke="#2b5f8a" d="M612.96,-1019.95C605.47,-920.6 600.81,-737.49 648.87,-591.2 658.65,-561.45 671.68,-531.78 686.57,-503.05"/>
+<path fill="none" stroke="#2b5f8a" d="M612.11,-1008.21C605.19,-906.67 602.64,-731.91 648.87,-591.2 658.65,-561.45 671.68,-531.78 686.57,-503.05"/>
 <polygon fill="#2b5f8a" stroke="#2b5f8a" points="688.86,-504.7 690.11,-496.31 683.91,-502.09 688.86,-504.7"/>
 <text xml:space="preserve" text-anchor="middle" x="690.56" y="-743" font-family="Helvetica,sans-Serif" font-size="10.00">contexto (solicitud)</text>
 <text xml:space="preserve" text-anchor="middle" x="687.2" y="-497.97" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
-<text xml:space="preserve" text-anchor="middle" x="610.17" y="-1010.95" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text xml:space="preserve" text-anchor="middle" x="609.33" y="-999.21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <!-- usage_condition -->
 <g id="node6" class="node">
@@ -594,7 +594,7 @@
 <polygon fill="none" stroke="black" points="1196.8,-1128 1196.8,-1151.2 1270.97,-1151.2 1270.97,-1128 1196.8,-1128"/>
 <text xml:space="preserve" text-anchor="start" x="1201.8" y="-1135.2" font-family="Helvetica,sans-Serif" font-size="11.00">BIGINT PK</text>
 <polygon fill="none" stroke="black" points="1083.51,-1104.8 1083.51,-1128 1196.8,-1128 1196.8,-1104.8 1083.51,-1104.8"/>
-<text xml:space="preserve" text-anchor="start" x="1088.51" y="-1112" font-family="Helvetica,sans-Serif" font-size="11.00">type</text>
+<text xml:space="preserve" text-anchor="start" x="1088.51" y="-1112" font-family="Helvetica,sans-Serif" font-size="11.00">name</text>
 <polygon fill="none" stroke="black" points="1196.8,-1104.8 1196.8,-1128 1270.97,-1128 1270.97,-1104.8 1196.8,-1104.8"/>
 <text xml:space="preserve" text-anchor="start" x="1201.8" y="-1112" font-family="Helvetica,sans-Serif" font-size="11.00">STRING UK</text>
 <polygon fill="none" stroke="black" points="1083.51,-1081.6 1083.51,-1104.8 1196.8,-1104.8 1196.8,-1081.6 1083.51,-1081.6"/>
@@ -602,9 +602,9 @@
 <polygon fill="none" stroke="black" points="1196.8,-1081.6 1196.8,-1104.8 1270.97,-1104.8 1270.97,-1081.6 1196.8,-1081.6"/>
 <text xml:space="preserve" text-anchor="start" x="1201.8" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
 <polygon fill="none" stroke="black" points="1083.51,-1058.4 1083.51,-1081.6 1196.8,-1081.6 1196.8,-1058.4 1083.51,-1058.4"/>
-<text xml:space="preserve" text-anchor="start" x="1088.51" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="1088.51" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">is_active</text>
 <polygon fill="none" stroke="black" points="1196.8,-1058.4 1196.8,-1081.6 1270.97,-1081.6 1270.97,-1058.4 1196.8,-1058.4"/>
-<text xml:space="preserve" text-anchor="start" x="1201.8" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<text xml:space="preserve" text-anchor="start" x="1201.8" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">BOOLEAN</text>
 <polygon fill="none" stroke="black" points="1083.51,-1035.2 1083.51,-1058.4 1196.8,-1058.4 1196.8,-1035.2 1083.51,-1035.2"/>
 <text xml:space="preserve" text-anchor="start" x="1088.51" y="-1042.4" font-family="Helvetica,sans-Serif" font-size="11.00">created_at</text>
 <polygon fill="none" stroke="black" points="1196.8,-1035.2 1196.8,-1058.4 1270.97,-1058.4 1270.97,-1035.2 1196.8,-1035.2"/>
@@ -643,9 +643,9 @@
 <polygon fill="none" stroke="black" points="338.16,-1081.6 338.16,-1104.8 412.32,-1104.8 412.32,-1081.6 338.16,-1081.6"/>
 <text xml:space="preserve" text-anchor="start" x="343.16" y="-1088.8" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
 <polygon fill="none" stroke="black" points="232.16,-1058.4 232.16,-1081.6 338.16,-1081.6 338.16,-1058.4 232.16,-1058.4"/>
-<text xml:space="preserve" text-anchor="start" x="237.16" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="237.16" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">is_active</text>
 <polygon fill="none" stroke="black" points="338.16,-1058.4 338.16,-1081.6 412.32,-1081.6 412.32,-1058.4 338.16,-1058.4"/>
-<text xml:space="preserve" text-anchor="start" x="343.16" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">STRING</text>
+<text xml:space="preserve" text-anchor="start" x="343.16" y="-1065.6" font-family="Helvetica,sans-Serif" font-size="11.00">BOOLEAN</text>
 <polygon fill="none" stroke="black" points="232.16,-1035.2 232.16,-1058.4 338.16,-1058.4 338.16,-1035.2 232.16,-1035.2"/>
 <text xml:space="preserve" text-anchor="start" x="237.16" y="-1042.4" font-family="Helvetica,sans-Serif" font-size="11.00">created_at</text>
 <polygon fill="none" stroke="black" points="338.16,-1035.2 338.16,-1058.4 412.32,-1058.4 412.32,-1035.2 338.16,-1035.2"/>
@@ -658,29 +658,29 @@
 <!-- source_system&#45;&gt;data_table -->
 <g id="edge9" class="edge">
 <title>source_system&#45;&gt;data_table</title>
-<path fill="none" stroke="#2b5f8a" d="M322.24,-1008.2C322.24,-968.23 322.24,-919.57 322.24,-875.13"/>
-<polygon fill="#2b5f8a" stroke="#2b5f8a" points="325.04,-875.23 322.24,-867.23 319.44,-875.23 325.04,-875.23"/>
+<path fill="none" stroke="#2b5f8a" d="M322.24,-1008.2C322.24,-964.79 322.24,-911.13 322.24,-863.75"/>
+<polygon fill="#2b5f8a" stroke="#2b5f8a" points="325.04,-863.88 322.24,-855.88 319.44,-863.88 325.04,-863.88"/>
 <text xml:space="preserve" text-anchor="middle" x="343.09" y="-939.8" font-family="Helvetica,sans-Serif" font-size="10.00">origen de</text>
-<text xml:space="preserve" text-anchor="middle" x="318.63" y="-868.72" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
+<text xml:space="preserve" text-anchor="middle" x="318.63" y="-857.37" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
 <text xml:space="preserve" text-anchor="middle" x="319.46" y="-999.2" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <!-- data_table&#45;&gt;data_field -->
 <g id="edge8" class="edge">
 <title>data_table&#45;&gt;data_field</title>
-<path fill="none" stroke="#2b5f8a" d="M283.2,-626.1C258.44,-550.7 226.43,-453.22 201.14,-376.2"/>
-<polygon fill="#2b5f8a" stroke="#2b5f8a" points="203.88,-375.55 198.72,-368.83 198.55,-377.3 203.88,-375.55"/>
+<path fill="none" stroke="#2b5f8a" d="M287.07,-637.9C261.83,-561.04 227.72,-457.14 201.08,-376.02"/>
+<polygon fill="#2b5f8a" stroke="#2b5f8a" points="203.83,-375.41 198.67,-368.68 198.51,-377.15 203.83,-375.41"/>
 <text xml:space="preserve" text-anchor="middle" x="266.18" y="-540.2" font-family="Helvetica,sans-Serif" font-size="10.00">tiene</text>
-<text xml:space="preserve" text-anchor="middle" x="194.64" y="-370.39" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
-<text xml:space="preserve" text-anchor="middle" x="280.42" y="-617.1" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text xml:space="preserve" text-anchor="middle" x="194.59" y="-370.24" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
+<text xml:space="preserve" text-anchor="middle" x="284.29" y="-628.9" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <!-- data_table&#45;&gt;collection_table -->
 <g id="edge7" class="edge">
 <title>data_table&#45;&gt;collection_table</title>
-<path fill="none" stroke="#2b5f8a" d="M361.76,-626.1C392.21,-534.5 433.49,-410.3 460.25,-329.8"/>
-<polygon fill="#2b5f8a" stroke="#2b5f8a" points="462.77,-331.09 462.64,-322.62 457.46,-329.33 462.77,-331.09"/>
+<path fill="none" stroke="#2b5f8a" d="M357.84,-637.9C388.55,-545.5 432.25,-414.04 460.18,-330.02"/>
+<polygon fill="#2b5f8a" stroke="#2b5f8a" points="462.82,-330.94 462.69,-322.47 457.51,-329.17 462.82,-330.94"/>
 <text xml:space="preserve" text-anchor="middle" x="416.37" y="-540.2" font-family="Helvetica,sans-Serif" font-size="10.00">pertenece a</text>
-<text xml:space="preserve" text-anchor="middle" x="459.5" y="-324.18" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
-<text xml:space="preserve" text-anchor="middle" x="358.98" y="-617.1" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text xml:space="preserve" text-anchor="middle" x="459.55" y="-324.03" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
+<text xml:space="preserve" text-anchor="middle" x="355.06" y="-628.9" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 </g>
 </svg>
