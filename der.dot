@@ -191,4 +191,12 @@ digraph DER {
   grupos -> collection_owner [style=dashed, color="#b08900", label="elegibilidad\n(validada en app)"];
   grupos -> access_request   [style=dashed, color="#b08900", label="owner/cumplimentador\n(validado en app)"];
   grupos -> audit_log        [style=dashed, color="#b08900", label="actor de la accion\n(snapshot desde la app)"];
+
+  /* ===== updated_by: resuelto via grupos (SCIM) en tablas auditables ===== */
+  grupos -> domain           [style=dotted, color="#9aa0a6", arrowhead=none, constraint=false, label="updated_by\n(resuelto via SCIM)"];
+  grupos -> subdomain        [style=dotted, color="#9aa0a6", arrowhead=none, constraint=false];
+  grupos -> collection       [style=dotted, color="#9aa0a6", arrowhead=none, constraint=false];
+  grupos -> data_table       [style=dotted, color="#9aa0a6", arrowhead=none, constraint=false];
+  grupos -> data_field       [style=dotted, color="#9aa0a6", arrowhead=none, constraint=false];
+  grupos -> collection_table [style=dotted, color="#9aa0a6", arrowhead=none, constraint=false];
 }
