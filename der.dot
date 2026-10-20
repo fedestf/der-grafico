@@ -1,7 +1,7 @@
 digraph DER {
   graph [rankdir=TB, splines=spline, nodesep=0.7, ranksep=1.0, bgcolor="white",
          fontname="Helvetica",
-         label="DER — Catálogo de datos (tasa_dev_trusted.fedel_sandbox)\n12 tablas · Grupos Databricks en vivo (sin app_user/role/owner_type)\nIdentidad del actor por snapshot (entra_id + email)\ncreated_at/updated_at en todas (audit_log usa changed_at, append-only)",
+         label="DER — Catálogo de datos (tasa_dev_trusted.fedel_sandbox)\n13 tablas · Grupos Databricks en vivo (sin app_user/role/owner_type)\nIdentidad del actor por snapshot (entra_id + email)\ncreated_at/updated_at en todas (audit_log usa changed_at, append-only)",
          labelloc="t", fontsize=18];
   node  [shape=plaintext, fontname="Helvetica", fontsize=11];
   edge  [fontname="Helvetica", fontsize=10, color="#2b5f8a", arrowsize=0.8];
@@ -136,6 +136,16 @@ digraph DER {
       <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
     </table>>];
 
+  access_request_status [label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="#f3eefb">
+      <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>ACCESS_REQUEST_STATUS</b></font></td></tr>
+      <tr><td align="left"><b>access_request_status_id</b></td><td align="left">BIGINT PK</td></tr>
+      <tr><td align="left">name</td><td align="left">STRING UK</td></tr>
+      <tr><td align="left">is_active</td><td align="left">BOOLEAN</td></tr>
+      <tr><td align="left">created_at</td><td align="left">TIMESTAMP</td></tr>
+      <tr><td align="left">updated_at</td><td align="left">TIMESTAMP</td></tr>
+    </table>>];
+
   access_request [label=<
     <table border="0" cellborder="1" cellspacing="0" cellpadding="4" bgcolor="#f3eefb">
       <tr><td bgcolor="#5a3a8a" colspan="2"><font color="white"><b>ACCESS_REQUEST</b></font></td></tr>
@@ -148,7 +158,7 @@ digraph DER {
       <tr><td align="left">comment</td><td align="left">STRING</td></tr>
       <tr><td align="left">is_service_account</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">service_account_name</td><td align="left">STRING</td></tr>
-      <tr><td align="left">status</td><td align="left">pendiente/aprobado/rechazado/cancelado/cumplimentado</td></tr>
+      <tr><td align="left"><i>status_id</i></td><td align="left">BIGINT FK: access_request_status</td></tr>
       <tr><td align="left">approver_entra_id</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">approver_email</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">approver_comment</td><td align="left">STRING</td></tr>
@@ -180,6 +190,7 @@ digraph DER {
   subdomain       -> collection         [taillabel="1", headlabel="N", label="tiene"];
   usage_context   -> collection         [taillabel="1", headlabel="N", label="contexto (coleccion)"];
   usage_context   -> access_request     [taillabel="1", headlabel="N", label="contexto (solicitud)"];
+  access_request_status -> access_request [taillabel="1", headlabel="N", label="estado de"];
   usage_condition -> collection         [taillabel="1", headlabel="N", label="condicion de uso"];
   collection      -> collection_table   [taillabel="1", headlabel="N", label="agrupa"];
   data_table      -> collection_table   [taillabel="1", headlabel="N", label="pertenece a"];
