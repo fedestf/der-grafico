@@ -158,7 +158,7 @@ digraph DER {
       <tr><td align="left">comment</td><td align="left">STRING</td></tr>
       <tr><td align="left">is_service_account</td><td align="left">BOOLEAN</td></tr>
       <tr><td align="left">service_account_name</td><td align="left">STRING</td></tr>
-      <tr><td align="left"><i>status_id</i></td><td align="left">BIGINT FK: access_request_status</td></tr>
+      <tr><td align="left"><i>access_request_status_id</i></td><td align="left">BIGINT FK: access_request_status</td></tr>
       <tr><td align="left">approver_entra_id</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">approver_email</td><td align="left">STRING (snapshot)</td></tr>
       <tr><td align="left">approver_comment</td><td align="left">STRING</td></tr>
